@@ -6,7 +6,7 @@ Python script to archive the files or logs in the .gz extension by running the t
 
 # Configuration Parameters 
 `env = DEV`
-	User can mention about the environment which machines belongs to.
+	- User can mention about the environment which machines belongs to.
 `enabled = 1`
 	On setting this parameter to 1, this block of
 `ssh_machine = x.x.x.x,x.x.x.x`
@@ -22,5 +22,9 @@ ssh_password = password
 `sudo = 1`
 	If the command needs to be executed as a sudo user, set to 1 or to 0.
 
+## Acknowledgments
 
+* Hat tip to anyone who's code was used
+* Inspiration
+* etc
 
