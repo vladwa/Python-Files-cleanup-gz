@@ -84,8 +84,8 @@ def worker():
                 while True:
                     for ip in ssh_machine:
                         for file in directory:
-                            command = "/bin/rm -rf %s" %  (file)
-                            logging.info("Executing: %s" % command)
+                            #command = "/bin/rm -rf %s" %  (file)
+                            #logging.info("Executing: %s" % command)
                             tarFileName=file.split('/')[-1]
                             print tarFileName
                             tarLocation=file.rsplit('/',1)[:1][0]
@@ -105,28 +105,23 @@ def worker():
                                     else:
                                         status, output = ssh.run_sudo_command(ssh_username=ssh_username, ssh_password=ssh_password,
                                                                                   ssh_machine=ip, command=command, jobid=jobid)
-                                        if (status == True):
-                                            logging.info("Files Generated successfully : %s" %(output))
-                                        else:
-                                            logging.info("Error while deleting Files : %s" %(output))  
+                                        logging.info("Tar Command Executed is : %s , output of tar command : %s" % (tarCommand,output))
+                                        listStatus=check_list_empty(output)
+                                        write_log_info(listStatus, output)  
                                 else:
                                     if tar:
                                         status, output = ssh.run_command(ssh_username=ssh_username, ssh_password=ssh_password,
                                                                          ssh_machine=ip, command=tarCommand, jobid=jobid,
                                                                          job_details=job_details)
                                         logging.info("Tar Command Executed is : %s , output of tar command : %s" % (tarCommand,output))
-                                        if(status == True):
-                                            logging.info("Tar file generated successfully : %s" %(output))
-                                        else:
-                                            logging.info("Error while generating Tar File: %s" %(output))
+                                        listStatus=check_list_empty(output)
+                                        write_log_info(listStatus, output)
                                     else:
                                         status, output = ssh.run_command(ssh_username=ssh_username, ssh_password=ssh_password,
                                                                          ssh_machine=ip, command=command, jobid=jobid,
                                                                          job_details=job_details)
-                                        if (status == True):
-                                            logging.info("Files deleted successfully : %s" %(output))
-                                        else:
-                                            logging.info("Error while deleting Files : %s" %(output))  
+                                        listStatus=check_list_empty(output)
+                                        write_log_info(listStatus, output)  
                             except ValueError:
                                 logging.error("Job[%s]: Could not run command:%s" % (jobid, sys.exc_info()[0]))
                                 logging.error(traceback.format_exc())
