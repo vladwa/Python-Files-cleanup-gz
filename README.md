@@ -8,19 +8,19 @@ Python script to archive the files or logs in the .gz extension by running the t
 `env = DEV`
 - User can mention about the environment which machines belongs to.
 `enabled = 1`
-	On setting this parameter to 1, this block of
+- On setting this parameter to 1, this block of
 `ssh_machine = x.x.x.x,x.x.x.x`
-	List Server Ip's or host name separated by comma(,) delimiter on which files needs to archived.
+- List Server Ip's or host name separated by comma(,) delimiter on which files needs to archived.
 `ssh_username = user`
-	Server user name
+- Login credentials: User name
 ssh_password = password
-	Server password
+- Login credentials: Server password
 `interval = 900`
-	Commands on the remote servers will be executed on every interval 900 (seconds).
+- Commands on the remote servers will be executed on every interval 900 (seconds).
 `directory =/home/user/tarFileLocation/filetest.tar.gz`
-	List of directory files need to be archived , separated by comma(,) delimiter.
+- List of directory files need to be archived , separated by comma(,) delimiter.
 `sudo = 1`
-	If the command needs to be executed as a sudo user, set to 1 or to 0.
+- If the command needs to be executed as a sudo user, set to 1 or to 0.
 
 ## Acknowledgments
 
