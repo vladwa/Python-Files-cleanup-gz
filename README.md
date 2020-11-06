@@ -1,5 +1,5 @@
 # Python-Files-cleanup-gz
-Python script to archive the files or logs in the .gz extension by running the tar command over the shh connection on the remote servers. The script also provides the functionality to execute commands as a sudo user.
+Python script to archive the files or logs in the .gz extension by running the tar command over the ssh connection on the remote servers. The script also provides the functionality to execute commands as a sudo user.
 
 # Usage
 Python script to archive the files or logs in the .gz extension by running the tar command over the shh connection on the remote servers. Only archiveing the files the script also deletes the archived files. The script creates the threads equal to number of servers provided in the configuration(fileDeleteSetting.cfg) file.
